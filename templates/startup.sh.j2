@@ -129,7 +129,6 @@ function start_supervisor {
     fi
     {% endif %}
 
-
     {% if galaxy_extras_config_slurm|bool %}
        {% if supervisor_manage_slurm|bool %}
            if [[ $NONUSE != *"slurmctld"* ]]
