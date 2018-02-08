@@ -1,0 +1,22 @@
+# Install the unofficial isatools lite for the Galaxy ISA -tab and -json datatypes
+# Assumes pip 9
+- name: Install packages 
+  apt: pkg={{ item }} state={{ galaxy_extras_apt_package_state }}
+  with_items:
+   - git
+  when: isatools-lite-install
+
+- name: Install isatools-lite unofficial
+  pip:
+    name: git+https://github.com/ISA-tools/isa-api.git@py2_isatools-lite
+    virtualenv: "{{ galaxy_venv_dir }}"
+  when: isatools-lite-install
+
+- name: Remove packages
+  apt: pkg={{ item }} state=absent
+  with_items:
+   - git
+  when: isatools-lite-install
+
+
+
