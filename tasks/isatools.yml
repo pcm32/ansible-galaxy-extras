@@ -10,7 +10,10 @@
   pip:
     name: git+https://github.com/ISA-tools/isa-api.git@py2_isatools-lite
     virtualenv: "{{ galaxy_venv_dir }}"
+    virtualenv_command: "{{ pip_virtualenv_command | default( 'virtualenv' ) }}"
   when: isatools-lite-install
+  become: True
+  become_user: "{{ galaxy_user_name }}"
 
 - name: Remove packages
   apt: pkg={{ item }} state=absent
