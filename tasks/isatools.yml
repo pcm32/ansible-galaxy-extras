@@ -4,6 +4,7 @@
   apt: pkg={{ item }} state={{ galaxy_extras_apt_package_state }}
   with_items:
    - git
+   - gcc
   when: isatools_lite_install
 
 - name: Install isatools-lite unofficial
@@ -19,6 +20,7 @@
   apt: pkg={{ item }} state=absent
   with_items:
    - git
+   - gcc
   when: isatools_lite_install
 
 
