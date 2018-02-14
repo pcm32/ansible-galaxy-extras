@@ -4,15 +4,15 @@
   apt: pkg={{ item }} state={{ galaxy_extras_apt_package_state }}
   with_items:
    - git
-   - gcc
    - python-dev
   when: isatools_lite_install
 
 - name: Install isatools-lite unofficial
   pip:
-    name: git+https://github.com/ISA-tools/isa-api.git@py2_isatools-lite
+    name: git+https://github.com/ilveroluca/isa-rwval@841d865339c99abc1f33929e18099b99a79dcd64
     virtualenv: "{{ galaxy_venv_dir }}"
     virtualenv_command: "{{ pip_virtualenv_command | default( 'virtualenv' ) }}"
+    extra_args: "--no-deps"
   when: isatools_lite_install
   become: True
   become_user: "{{ galaxy_user_name }}"
@@ -21,7 +21,6 @@
   apt: pkg={{ item }} state=absent
   with_items:
    - git
-   - gcc
    - python-dev
   when: isatools_lite_install
 
