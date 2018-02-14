@@ -4,7 +4,6 @@
   apt: pkg={{ item }} state={{ galaxy_extras_apt_package_state }}
   with_items:
    - git
-   - python-dev
   when: isatools_lite_install
 
 - name: Install networkx
@@ -30,7 +29,6 @@
   apt: pkg={{ item }} state=absent
   with_items:
    - git
-   - python-dev
   when: isatools_lite_install
 
 
