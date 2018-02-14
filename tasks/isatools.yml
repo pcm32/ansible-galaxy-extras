@@ -18,7 +18,7 @@
 
 - name: Install isatools-lite unofficial
   pip:
-    name: git+https://github.com/ilveroluca/isa-rwval@841d865339c99abc1f33929e18099b99a79dcd64
+    name: git+https://github.com/ilveroluca/isa-rwval@feature/fewer_deps
     virtualenv: "{{ galaxy_venv_dir }}"
     virtualenv_command: "{{ pip_virtualenv_command | default( 'virtualenv' ) }}"
     extra_args: "--no-deps"
